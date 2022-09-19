@@ -67,10 +67,43 @@
     background-color: transparent;
     border: none;
     padding: 0;
-    width: 40px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
     position: absolute;
-    top: 15px;
+    top: 18px;
     right: 30px;
     
 }
+
+@media (max-width: 768px) {
+    .header {
+        margin: 18px 30px;
+    }
+    .header__user-nav {
+      display: none;
+    }
+
+    .header__burger-menu {
+        display: block;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .header {
+        margin: 14px 14px;
+    }
+    .header__nav {
+      padding-top: 6px;
+    }
+
+    .header__reg-link {
+       font-size: 10px;
+    }
+
+    .header__login-link {
+        font-size: 10px;
+        padding-top: 5px;
+        width: 54px;
+        height: 21px;
+    }
+  }

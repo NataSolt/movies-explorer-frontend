@@ -3,6 +3,7 @@ import React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 function Header() {
   return (
@@ -32,7 +33,7 @@ function Header() {
         </Route>
 
         <Route exact path={["/movies", "/saved-movies", "/profile"]}>
-          {/* <BurgerMenu /> */}
+          <BurgerMenu />
         </Route>
       </Switch>
     </header>
