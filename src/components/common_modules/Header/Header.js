@@ -11,7 +11,9 @@ function Header() {
       <Switch>
         <Route exact path="/">
           <div className="header__container">
-            <img src={logoHeader} alt="смайл" className="header__logo" />
+            <NavLink Link to="/">
+              <img src={logoHeader} alt="смайл" className="header__logo" />
+            </NavLink>
             <div className="header__nav">
               <NavLink to="/sign-up" className="header__reg-link">
                 Регистрация
@@ -24,7 +26,9 @@ function Header() {
         </Route>
         <Route exact path={["/movies", "/saved-movies", "/profile"]}>
           <div className="header__user-container">
-            <img src={logoHeader} alt="Логотип" className="header__logo" />
+            <NavLink Link to="/">
+              <img src={logoHeader} alt="Логотип" className="header__logo" />
+            </NavLink>
             <div className="header__user-nav">
               <Navigation />
             </div>
