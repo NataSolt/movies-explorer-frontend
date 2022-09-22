@@ -29,7 +29,7 @@ border-radius: 10px;
     }
 }
 
-@media (max-width: 340px) {
+@media (max-width: 350px) {
     .promo {
         margin: 0 14px;
     }
