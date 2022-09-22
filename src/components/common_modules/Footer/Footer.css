@@ -65,6 +65,9 @@
 }
 
 @media (max-width: 380px) {
+  .footer {
+    background: #ffffff;
+  }
   .footer__title {
     font-size: 12px;
     line-height: 15px;

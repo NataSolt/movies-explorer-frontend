@@ -10,7 +10,7 @@ function NavTab() {
       <a className="navtab__link" href="#techs">
         <div className="navtab__text">Технологии</div>
       </a>
-      <a className="navtab__link" href="#student">
+      <a className="navtab__link" href="#about-me">
       <div className="navtab__text">Студент</div>
       </a>
     </section>
