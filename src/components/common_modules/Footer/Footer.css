@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: #fafafa;
+  margin: 0 70px;
 }
 
 .footer__title {
@@ -20,7 +21,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   border-top: 1px solid #e8e8e8;
-  margin: 0 70px;
+  margin: 0;
   justify-content: space-between;
 }
 
@@ -59,18 +60,26 @@
 }
 
 @media (max-width: 768px) {
-  .footer__container {
-    margin: 0 30px;
+  .footer {
+    background: #ffffff;
+    margin: 0 23px 0 37px;
   }
+
+  .footer__container {
+    max-width: 708px;
+  }
+
 }
 
 @media (max-width: 380px) {
   .footer {
-    background: #ffffff;
+    margin: 0 14px;
   }
+  
   .footer__title {
     font-size: 12px;
     line-height: 15px;
+    padding: 79px 0 0 0;
   }
 
   .footer__container {

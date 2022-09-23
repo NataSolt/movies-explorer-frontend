@@ -9,6 +9,11 @@
   justify-content: space-between;
 }
 
+.header__logo {
+  width: 38px;
+  height: 38px;
+}
+
 .header__nav {
   display: flex;
   flex-direction: row;
@@ -91,14 +96,19 @@
 
   @media (max-width: 420px) {
     .header {
-        margin: 14px 14px;
+        margin: 18px 14px;
     }
     .header__nav {
       padding-top: 6px;
     }
 
+    .header__logo {
+      margin-top: 5px;
+    }
+
     .header__reg-link {
        font-size: 10px;
+       margin-right: 14px;
     }
 
     .header__login-link {

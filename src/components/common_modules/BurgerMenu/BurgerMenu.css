@@ -17,12 +17,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: transparent;
-  width: 22px;
-  height: 22px;
+  width: 23px;
+  height: 23px;
   border: none;
   position: absolute;
-  top: 22.44px;
-  right: 22.44px;
+  top: 26px;
+  right: 26px;
   padding: 0;
   z-index: 2;
 }
@@ -59,7 +59,7 @@
   line-height: 22px;
   color: #000000;
   text-decoration: none;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   border-bottom: 2px solid #000000;
   padding-bottom: 4px;
 }
@@ -70,7 +70,7 @@
   line-height: 22px;
   color: #000000;
   text-decoration: none;
-  margin-bottom: 321px;
+  margin-bottom: 620px;
 }
 
 .burger-menu__profile-link {
@@ -98,17 +98,18 @@
 
 @media (max-width: 320px) {
   .burger-menu__close {
-    top: 13.44px;
-    right: 13.44px;
+    top: 17px;
+    right: 18px;
   }
   .burger-menu__main {
     margin-top: 144px;
     margin-bottom: 24px;
   }
   .burger-menu__save-movies {
-    margin-bottom: 444px;
+    margin-bottom: 443px;
   }
   .burger-menu__movies {
-    margin-bottom: 24px;
-  }
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+  } 
 }

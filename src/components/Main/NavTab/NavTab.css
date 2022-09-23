@@ -49,11 +49,14 @@
   }
 
   .navtab__link {
-    font-size: 10px;
     border-radius: 6px;
     width: 82px;
-    height: 19px;
+    height: 21px;
     padding-top: 5px;
     margin-right: 6px;
+  }
+
+  .navtab__text {
+    font-size: 10px;
   }
 }
