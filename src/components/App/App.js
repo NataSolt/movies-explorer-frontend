@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import Main from "../Main/Main";
+import Movies from "../Movies/Movies";
 import Header from "../common_modules/Header/Header";
 import Footer from "../common_modules/Footer/Footer";
 import "./App.css";
@@ -17,6 +18,10 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Main />
+        </Route>
+
+        <Route exact path="/movies">
+          <Movies />
         </Route>
       </Switch>
 
