@@ -76,8 +76,8 @@
     width: 44px;
     height: 44px;
     position: absolute;
-    top: 18px;
-    right: 30px;
+    top: 15px;
+    right: 15px;
     
 }
 
@@ -96,7 +96,7 @@
 
   @media (max-width: 420px) {
     .header {
-        margin: 18px 14px;
+        margin: 20px 14px 17px 14px;
     }
     .header__nav {
       padding-top: 6px;
@@ -116,5 +116,12 @@
         padding-top: 5px;
         width: 54px;
         height: 21px;
+    }
+
+    .header__burger-menu {
+      right: 0;
+      top: 26px;
+      width: 37px;
+      height: 40px;
     }
   }

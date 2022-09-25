@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
+import SavedMovies from "../Movies/SavedMovies/SavedMovies";
 import Header from "../common_modules/Header/Header";
 import Footer from "../common_modules/Footer/Footer";
 import "./App.css";
@@ -23,6 +24,14 @@ function App() {
         <Route exact path="/movies">
           <Movies />
         </Route>
+
+        <Route exact path="/saved-movies">
+          <SavedMovies />
+        </Route>
+
+        {/* <Route path="*">
+          <PageNotFound />
+        </Route> */}
       </Switch>
 
       <Route exact path={FooterPath}>
