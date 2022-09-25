@@ -5,7 +5,7 @@ import SavedMovies from "../Movies/SavedMovies/SavedMovies";
 import Header from "../common_modules/Header/Header";
 import Footer from "../common_modules/Footer/Footer";
 import Register from "../user/Register/Register";
-//import Login from "../Login/Login";
+import Login from "../user/Login/Login";
 //import Profile from "../Profile/Profile";
 import "./App.css";
 
@@ -28,9 +28,9 @@ function App() {
           <Register />
         </Route>
 
-        {/* <Route exact path="/sign-in">
+        <Route exact path="/sign-in">
                         <Login />
-                    </Route> */}
+                    </Route>
 
         {/* <Route exact path="/profile">
                         <Profile />

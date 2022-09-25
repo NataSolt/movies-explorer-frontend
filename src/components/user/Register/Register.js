@@ -7,7 +7,7 @@ function Register() {
   return (
     <section className="register">
       <Link to="/">
-        <img src={logoHeader} alt="Логотип" className="headerlogo" />
+        <img src={logoHeader} alt="Логотип" className="header__logo" />
       </Link>
       <h2 className="register__title">Добро пожаловать!</h2>
       <form className="register__form">
@@ -44,9 +44,9 @@ function Register() {
         </button>
       </form>
 
-      <div className="register__signin-container">
-        <p className="register__signin-text">Уже зарегистрированы?</p>
-        <Link className="register__signin-link" to="/sign-in">
+      <div className="register__container">
+        <p className="register__text">Уже зарегистрированы?</p>
+        <Link className="register__link" to="/sign-in">
           Войти
         </Link>
       </div>
