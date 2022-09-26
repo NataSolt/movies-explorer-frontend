@@ -6,7 +6,7 @@ import Header from "../common_modules/Header/Header";
 import Footer from "../common_modules/Footer/Footer";
 import Register from "../user/Register/Register";
 import Login from "../user/Login/Login";
-//import Profile from "../Profile/Profile";
+import Profile from "../user/Profile/Profile";
 import "./App.css";
 
 const headerPath = ["/movies", "/", "/saved-movies", "/profile"];
@@ -32,9 +32,9 @@ function App() {
                         <Login />
                     </Route>
 
-        {/* <Route exact path="/profile">
+        <Route exact path="/profile">
                         <Profile />
-                    </Route> */}
+                    </Route>
 
         <Route exact path="/movies">
           <Movies />
