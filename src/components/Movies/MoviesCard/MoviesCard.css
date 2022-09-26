@@ -1,82 +1,82 @@
 .moviescard {
-    display: flex;
-    flex-direction: column;
-    background: #FDFDFD;
-box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  background: #fdfdfd;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 }
 
 .moviescards__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .moviescard__title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
-    margin: 14px 0 9px 14px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 14px 0 9px 14px;
 }
 
 .moviescard__text {
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 13px;
-    display: flex;
-    align-items: center;
-    margin: 0 0 14px 14px;
-    color: #A0A0A0;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  margin: 0 0 14px 14px;
+  color: #a0a0a0;
 }
 
 .moviescard__button {
- background-image: url(../../../images/moviesbutton.svg);
-width: 30px;
-height: 30px;
-border: none;
-border-radius: 50%;
-padding: 0;
-margin-right: 14px;
+  background-image: url(../../../images/moviesbutton.svg);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 14px;
 }
 
 .moviescard__button_active {
-    border: none;
-    background-image: url(../../../images/moviesbutton-save.svg);
-    border-radius: 50%;
+  border: none;
+  background-image: url(../../../images/moviesbutton-save.svg);
+  border-radius: 50%;
 }
 
 .moviescard__button-delete {
-    background-image: url(../../../images/button-close-savedMovies.svg);
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 50%;
-    padding: 0;
-    margin-right: 14px;
+  background-image: url(../../../images/button-close-savedMovies.svg);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 14px;
 }
 .moviescard__button-delete:hover {
-    opacity: 0.8;
-    cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .moviescard__img {
-    max-width: 364px;
-    max-height: 203px;
+  max-width: 364px;
+  max-height: 203px;
 }
 
 .moviescard__img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media (max-width: 860px) {
-    /* .moviescard {
+  /* .moviescard {
         margin-left: 9px;
     } */
 
-    .moviescard__img {
-        max-width: 339px;
-        max-height: 190px;
-    }
+  .moviescard__img {
+    max-width: 339px;
+    max-height: 190px;
+  }
 }

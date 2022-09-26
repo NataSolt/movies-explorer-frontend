@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./BurgerMenu.css"
+import "./BurgerMenu.css";
 
 function BurgerMenu() {
   return (
@@ -20,8 +20,8 @@ function BurgerMenu() {
         </Link>
 
         <Link className="burger-menu__profile-link" to="/profile">
-        <div className="burger-menu__profile">Аккаунт</div>
-      </Link>
+          <div className="burger-menu__profile">Аккаунт</div>
+        </Link>
       </div>
     </div>
   );

@@ -52,76 +52,75 @@
 }
 
 .header__user-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0;
 }
 
 .header__user-nav {
-    margin-left: 44px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  margin-left: 44px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-.header__burger-menu{
-    display: none;
-    background-image: url('../../../images/burger-menu.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 44px;
-    height: 44px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    
+.header__burger-menu {
+  display: none;
+  background-image: url("../../../images/burger-menu.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 @media (max-width: 768px) {
-    .header {
-        margin: 18px 30px;
-    }
-    .header__user-nav {
-      display: none;
-    }
-
-    .header__burger-menu {
-        display: block;
-    }
+  .header {
+    margin: 18px 30px;
+  }
+  .header__user-nav {
+    display: none;
   }
 
-  @media (max-width: 420px) {
-    .header {
-        margin: 20px 14px 17px 14px;
-    }
-    .header__nav {
-      padding-top: 6px;
-    }
-
-    .header__logo {
-      margin-top: 5px;
-    }
-
-    .header__reg-link {
-       font-size: 10px;
-       margin-right: 14px;
-    }
-
-    .header__login-link {
-        font-size: 10px;
-        padding-top: 5px;
-        width: 54px;
-        height: 21px;
-    }
-
-    .header__burger-menu {
-      right: 15px;
-      top: 26px;
-      width: 37px;
-      height: 40px;
-    }
+  .header__burger-menu {
+    display: block;
   }
+}
+
+@media (max-width: 420px) {
+  .header {
+    margin: 20px 14px 17px 14px;
+  }
+  .header__nav {
+    padding-top: 6px;
+  }
+
+  .header__logo {
+    margin-top: 5px;
+  }
+
+  .header__reg-link {
+    font-size: 10px;
+    margin-right: 14px;
+  }
+
+  .header__login-link {
+    font-size: 10px;
+    padding-top: 5px;
+    width: 54px;
+    height: 21px;
+  }
+
+  .header__burger-menu {
+    right: 15px;
+    top: 26px;
+    width: 37px;
+    height: 40px;
+  }
+}

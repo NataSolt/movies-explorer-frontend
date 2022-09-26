@@ -135,84 +135,84 @@
   line-height: 18px;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .searchform {
     margin-top: 78px;
     padding-bottom: 109px;
   }
-    .searchform__button {
-        margin-right: 19px;
-}
- .searchform-checkbox {
+  .searchform__button {
+    margin-right: 19px;
+  }
+  .searchform-checkbox {
     padding-left: 19px;
     margin-right: 0;
- }
+  }
 
- .searchform-checkbox__text {
+  .searchform-checkbox__text {
     margin-left: 17px;
-}
-}
-
-@media (max-width:540px) {
-    .searchform__container {
-background-color: white;
-        flex-direction: column;
+  }
 }
 
-.searchform__form {
+@media (max-width: 540px) {
+  .searchform__container {
+    background-color: white;
+    flex-direction: column;
+  }
+
+  .searchform__form {
     background: #f9f9f9;
     border-radius: 9px;
     padding-left: 9px;
-    width: 90%
-}
+    width: 90%;
+  }
 
-.searchform__img {
-display: none;
-}
+  .searchform__img {
+    display: none;
+  }
 
-.searchform-checkbox {
+  .searchform-checkbox {
     border: none;
     margin-top: 45px;
- }
+  }
 }
 
-@media (max-width:350px) {
-    .searchform {
-        margin-top: 80px;
-        padding-bottom: 44px;
-    }
+@media (max-width: 350px) {
+  .searchform {
+    margin-top: 80px;
+    padding-bottom: 44px;
+  }
 
-    .searchform__container {
-background-color: white;
-        flex-direction: column;
-}
+  .searchform__container {
+    background-color: white;
+    flex-direction: column;
+  }
 
-.searchform__form {
+  .searchform__form {
     background: #f9f9f9;
     border-radius: 9px;
-}
+  }
 
-.searchform-checkbox {
+  .searchform-checkbox {
     border: none;
     margin-top: 45px;
     height: auto;
     padding-left: 0;
- }
+  }
 
- .searchform-checkbox__text {
+  .searchform-checkbox__text {
     font-size: 11px;
     margin-left: 12px;
-}
+  }
 
-.searchform__input {
+  .searchform__input {
     font-size: 14px;
   }
-  
+
   .searchform__input::placeholder {
     font-size: 14px;
-}
+  }
 
-.searchform__button {
-  margin-right: 9px;
-}
+  .searchform__button {
+    margin-right: 9px;
+  }
 }

@@ -8,10 +8,6 @@
   height: 100vh;
 }
 
-/* .burger-menu__active { 
-    display: none;
-} */
-
 .burger-menu__close {
   background-image: url(../../../images/close-menu.svg);
   background-repeat: no-repeat;
@@ -111,5 +107,5 @@
   .burger-menu__movies {
     margin-bottom: 16px;
     padding-bottom: 6px;
-  } 
+  }
 }
