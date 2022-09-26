@@ -7,6 +7,7 @@ import Footer from "../common_modules/Footer/Footer";
 import Register from "../user/Register/Register";
 import Login from "../user/Login/Login";
 import Profile from "../user/Profile/Profile";
+import PageNotFound from "../common_modules/PageNotFound/PageNotFound";
 import "./App.css";
 
 const headerPath = ["/movies", "/", "/saved-movies", "/profile"];
@@ -44,9 +45,9 @@ function App() {
           <SavedMovies />
         </Route>
 
-        {/* <Route path="*">
+        <Route path="*">
           <PageNotFound />
-        </Route> */}
+        </Route>
       </Switch>
 
       <Route exact path={FooterPath}>
