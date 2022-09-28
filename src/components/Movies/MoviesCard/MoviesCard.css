@@ -41,6 +41,11 @@
   margin-right: 14px;
 }
 
+.moviescard__button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .moviescard__button_active {
   border: none;
   background-image: url(../../../images/moviesbutton-save.svg);

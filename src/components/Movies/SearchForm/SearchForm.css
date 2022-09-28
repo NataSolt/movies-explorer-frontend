@@ -140,6 +140,10 @@
     margin-top: 78px;
     padding-bottom: 109px;
   }
+
+  .searchform__form {
+    width: 71%;
+  }
   .searchform__button {
     margin-right: 19px;
   }
@@ -153,7 +157,7 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 745px) {
   .searchform__container {
     background-color: white;
     flex-direction: column;
@@ -207,6 +211,10 @@
   .searchform__input {
     font-size: 14px;
   }
+
+  .searchform__input:focus {
+    outline: none;
+}
 
   .searchform__input::placeholder {
     font-size: 14px;

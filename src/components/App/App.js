@@ -10,15 +10,17 @@ import Profile from "../User/Profile/Profile";
 import PageNotFound from "../Common_modules/PageNotFound/PageNotFound";
 import "./App.css";
 
+// import CurrentUserContext from "../../context/currentUserContext";
 //import moviesApi from "../../utils/MoviesApi";
 // import mainApi from "../../utils/MainApi";
+//import * as auth from '../../utils/auth.js';
 
 const headerPath = ["/movies", "/", "/saved-movies", "/profile"];
 const FooterPath = ["/movies", "/", "/saved-movies"];
 
 function App() {
   return (
-    <div className="page">
+    <div className="page" lang="ru">
       <Route exact path={headerPath}>
         <Header />
       </Route>
