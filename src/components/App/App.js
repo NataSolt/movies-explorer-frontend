@@ -2,20 +2,25 @@ import { Route, Switch } from "react-router-dom";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../Movies/SavedMovies/SavedMovies";
-import Header from "../common_modules/Header/Header";
-import Footer from "../common_modules/Footer/Footer";
-import Register from "../user/Register/Register";
-import Login from "../user/Login/Login";
-import Profile from "../user/Profile/Profile";
-import PageNotFound from "../common_modules/PageNotFound/PageNotFound";
+import Header from "../Common_modules/Header/Header";
+import Footer from "../Common_modules/Footer/Footer";
+import Register from "../User/Register/Register";
+import Login from "../User/Login/Login";
+import Profile from "../User/Profile/Profile";
+import PageNotFound from "../Common_modules/PageNotFound/PageNotFound";
 import "./App.css";
+
+// import CurrentUserContext from "../../context/currentUserContext";
+//import moviesApi from "../../utils/MoviesApi";
+// import mainApi from "../../utils/MainApi";
+//import * as auth from '../../utils/auth.js';
 
 const headerPath = ["/movies", "/", "/saved-movies", "/profile"];
 const FooterPath = ["/movies", "/", "/saved-movies"];
 
 function App() {
   return (
-    <div className="page">
+    <div className="page" lang="ru">
       <Route exact path={headerPath}>
         <Header />
       </Route>
