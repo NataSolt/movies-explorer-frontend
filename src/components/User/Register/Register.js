@@ -1,26 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logoHeader from "../../../images/logo-header.svg";
 import "./Register.css";
 
-function Register({ onRegister }) {
+function Register({ onRegister, isLoading }) {
   const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
+    email: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
+    password: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
   });
 
+  const isValid =
+    userData.name.isValid &&
+    userData.email.isValid &&
+    userData.password.isValid;
+
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    isLoading ? setDisabled(true) : setDisabled(false);
+  }, [isLoading]);
+
+  useEffect(() => {
+    isValid ? setDisabled(false) : setDisabled(true);
+  }, [isValid]);
+
   const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
+    const { name, value, validity, validationMessage } = evt.target;
+    setUserData((prevState) => ({
+      ...prevState,
+      [name]: {
+        ...userData[name],
+        value,
+        isValid: validity.valid,
+        errorMessage: validationMessage,
+      },
+    }));
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onRegister(userData);
+    onRegister({
+      name: userData.name.value,
+      email: userData.email.value,
+      password: userData.password.value,
+    });
   };
 
   return (
@@ -32,40 +68,61 @@ function Register({ onRegister }) {
       <form className="register__form" onSubmit={handleSubmit}>
         <label className="register__label">Имя</label>
         <input
-          className="register__input"
+          className={`register__input ${
+            userData.name.errorMessage && "register__input_error"
+          }`}
           name="name"
           type="text"
           id="name"
           required
-          value={userData.name}
+          value={userData.name.value || ""}
+          minLength="2"
+          maxLength="20"
           onChange={handleChange}
         />
 
+        <span className="register__error">{userData.name.errorMessage}</span>
+
         <label className="register__label">E-mail</label>
         <input
-          className="register__input"
+          className={`register__input ${
+            userData.email.errorMessage && "register__input_error"
+          }`}
           name="email"
           type="email"
           id="email"
           required
-          value={userData.email}
+          value={userData.email.value || ""}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           onChange={handleChange}
         />
 
+        <span className="register__error">{userData.email.errorMessage}</span>
+
         <label className="register__label">Пароль</label>
         <input
-          className="register__input"
+          className={`register__input ${
+            userData.password.errorMessage && "register__input_error"
+          }`}
           name="password"
           type="password"
           id="password"
           required
-          value={userData.password}
+          value={userData.password.value || ""}
           onChange={handleChange}
         />
 
-        <span className="register__span">Что-то пошло не так...</span>
+        <span className="register__error">
+          {userData.password.errorMessage}
+        </span>
 
-        <button className="register__submit" type="submit">
+        <button
+          className={`register__submit ${
+            isValid && !isLoading ? "" : "register__submit_disabled"
+          }`}
+          disabled={disabled}
+          type="submit"
+        >
           Зарегистрироваться
         </button>
       </form>
