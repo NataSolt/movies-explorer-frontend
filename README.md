@@ -4,4 +4,4 @@
 
 Проект расположен : https://poiskkino.nomoredomains.sbs/
 
-Пулл реквест: 
+Пулл реквест: https://github.com/NataSolt/movies-explorer-frontend/pull/2
