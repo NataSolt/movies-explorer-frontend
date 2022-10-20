@@ -84,6 +84,7 @@
 }
 
 .login__submit_disabled {
+  cursor: default;
   color: #C2C2C2;
   background-color: #F8F8F8;
 }

@@ -1,13 +1,30 @@
 import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardlist/MoviesCardlist";
+import Preloader from "../Preloader/Preloader";
 import "./SavedMovies.css";
 
-function SavedMovies() {
+function SavedMovies({
+  onSearch,
+  onSubmitCheckbox,
+  onSaveMovie,
+  onDeleteMovie,
+  savedMovies,
+  preloaderStatus,
+}) {
   return (
     <section className="savedmovies">
-      <SearchForm />
-      <MoviesCardList />
+      <SearchForm onSearch={onSearch} onSubmitCheckbox={onSubmitCheckbox} />
+      {preloaderStatus ? (
+        <Preloader />
+      ) : (
+        <MoviesCardList
+          foundMovies={savedMovies}
+          onSaveMovie={onSaveMovie}
+          onDeleteMovie={onDeleteMovie}
+          savedMovies={savedMovies}
+        />
+      )}
     </section>
   );
 }

@@ -1,4 +1,8 @@
-const  baseUrl = "https://api.poiskkino.nomoredomains.sbs";
+const  BASEURL = "https://api.poiskkino.nomoredomains.sbs";
+// const BASEURL= "http://localhost:3005";
+
+
+
 
 //функция ошибки
 const checkResponse = (res) => {
@@ -8,32 +12,39 @@ const checkResponse = (res) => {
     return Promise.reject(`Ошибка: ${res.status}`);
   };
 
-  export const register = ({name, password, email}) => {
-    return fetch(`${baseUrl}/signup`, {
+export const register = (name, email, password) => {
+  return fetch(`${BASEURL}/signup`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(name, email, password)
+  })
+      .then(checkResponse)
+};
+
+
+
+export const authorize = (data) => {
+  console.log( data)
+    return fetch(`${BASEURL}/signin`, {
+        // mode: 'no-cors',
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({name, password, email})
+        body: JSON.stringify(data)
     })
         .then(checkResponse);
 };
 
-export const authorize = ({name, password, email}) => {
-    return fetch(`${baseUrl}/signin`, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({name, password, email})
-    })
-        .then(checkResponse);
-};
+
+
 
 export const checkToken = (token) => {
-    return fetch(`${baseUrl}/users/me`, {
+  console.log(BASEURL)
+    return fetch(`${BASEURL}/users/me`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
