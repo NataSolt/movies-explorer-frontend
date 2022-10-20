@@ -85,16 +85,13 @@ function App() {
   }, []);
 
   // Регистрация пользователя
-  function handleRegister(data) {
+  function handleRegister({name, password, email}) {
     setIsLoading(true);
-    console.log(data);
     auth
-      .register(data)
+      .register({name, password, email})
       .then(() => {
-        setInfoTooltipImage(imageSuc);
-        setMessage("Вы успешно зарегистрировались!");
-        setInfoTooltipOpen(true);
-        history.push("/signin");
+        handleLogin({password, email});
+        history.push("/movies");
       })
       .catch((err) => {
         setInfoTooltipImage(imageErr);
@@ -290,9 +287,7 @@ function App() {
           (item) => item._id !== movie._id
         );
         setSavedMovies(newMoviesList);
-        setSavedMoviesList(
-          savedMoviesList.filter((item) => item._id !== movie._id)
-        );
+          savedMoviesList(savedMoviesList.filter((item) => item._id !== movie._id));
       })
       .catch((err) => {
         console.log(`Ошибка ${err}`);
@@ -321,7 +316,7 @@ function App() {
 
           <Route exact path="/signin">
             {loggedIn ? <Redirect to="/" /> : <Login onLogin={handleLogin} />}{" "}
-            <Login onLogin={handleLogin} />
+            {/* <Login onLogin={handleLogin} /> */}
           </Route>
 
           <ProtectRoute
