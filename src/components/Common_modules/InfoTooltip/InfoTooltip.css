@@ -12,6 +12,12 @@
       height: 100vh;
   }
 
+  .popup_opened {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
   .popup__container {
     display: flex;
     flex-direction: column;
@@ -41,18 +47,18 @@
 }
 
 .popup__close {
-    background-image: url(../../../images/close.svg);
+    background-image: url(../../../images/close-menu.svg);
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: cover;
     border: none;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: -39px;
-    right: -38px;
+    top: -35px;
+    right: -25px;
     cursor: pointer;
-    color: #ffffff;
+    color: black;
     transition: opacity 0.3s ease;
   }
   

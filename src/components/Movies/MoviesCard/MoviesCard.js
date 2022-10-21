@@ -7,7 +7,8 @@ import { MOVIES_URL, handleDurationMovies } from "../../../utils/constants";
 
 function MoviesCard({ movie, onSaveMovie, onDeleteMovie, savedMovies }) {
   const isSaved = savedMovies.find((item) => item.movieId === movie.id);
-
+console.log(movie.id)
+console.log(isSaved)
   function handleSaveMovie() {
     if (!isSaved) {
       onSaveMovie(movie);
@@ -34,7 +35,7 @@ function MoviesCard({ movie, onSaveMovie, onDeleteMovie, savedMovies }) {
           <Route path="/movies">
             <button
               className={
-                isSaved ? "moviescard__button_active" : "moviescard__button"
+                isSaved ? "moviescard__button_active" : "moviescard__button_inactive"
               }
               type="button"
               onClick={handleSaveMovie}

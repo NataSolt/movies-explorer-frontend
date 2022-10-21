@@ -25,7 +25,11 @@ function App() {
   const history = useHistory();
   const headerPath = ["/movies", "/", "/saved-movies", "/profile"];
   const FooterPath = ["/movies", "/", "/saved-movies"];
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    email: "",
+    _id: "",
+  });
   const [loggedIn, setLoggedIn] = useState(false);
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuc);
@@ -33,15 +37,15 @@ function App() {
   const [message, setMessage] = useState("");
   const [preloader, setPreloader] = useState(false);
 
-  const [loadedMovies, setLoadedMovies] = useState([]);
+  const [allMovies, setAllMovies] = useState([]);
   const [foundMovies, setFoundMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesList, setSavedMoviesList] = useState([]);
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("searchedMovies"))) {
-      if (localStorage.getItem("searchedMovies")) {
-        setLoadedMovies(JSON.parse(localStorage.getItem("searchedMovies")));
+    if (JSON.parse(localStorage.getItem("loadedMovies"))) {
+      if (localStorage.getItem("loadedMovies")) {
+        setAllMovies(JSON.parse(localStorage.getItem("loadedMovies")));
       }
     }
   }, []);
@@ -53,6 +57,12 @@ function App() {
     ) {
       const checkboxStatus = JSON.parse(localStorage.getItem("checkboxStatus"));
       handleCheckboxMovies(checkboxStatus);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem("jwt")) {
+      handleSignOut();
     }
   }, []);
 
@@ -69,9 +79,13 @@ function App() {
       mainApi.setToken(token);
       mainApi
         .getUser()
-        .then((data) => {
+        .then((res) => {
           setLoggedIn(true);
-          setCurrentUser(data);
+          setCurrentUser({
+            name: res.name,
+            email: res.email,
+            _id: res._id,
+          });
           history.push("/movies");
         })
         .catch((err) => console.log(err));
@@ -85,12 +99,16 @@ function App() {
   }, []);
 
   // Регистрация пользователя
-  function handleRegister({name, password, email}) {
+  function handleRegister({ name, password, email }) {
     setIsLoading(true);
     auth
-      .register({name, password, email})
+      .register({ name, password, email })
       .then(() => {
-        handleLogin({password, email});
+        handleLogin({ password, email });
+        //Попап успешного логина
+        setInfoTooltipImage(imageSuc);
+        setMessage("Регистрация прошла успешно!");
+        setInfoTooltipOpen(true);
         history.push("/movies");
       })
       .catch((err) => {
@@ -132,7 +150,7 @@ function App() {
   function handleSignOut() {
     localStorage.clear();
     setLoggedIn(false);
-    setCurrentUser({});
+    setCurrentUser({ name: "", email: "", _id: "" });
     history.push("/");
     mainApi.setToken(null);
   }
@@ -159,8 +177,8 @@ function App() {
 
   // Поиск фильмов
   function handleSearchMovies(movie, checked) {
-    if (loadedMovies.length !== 0) {
-      const searchMovies = loadedMovies.filter((item) =>
+    if (allMovies.length !== 0) {
+      const searchMovies = allMovies.filter((item) =>
         item.nameRU.toLowerCase().includes(movie.toLowerCase())
       );
 
@@ -181,6 +199,14 @@ function App() {
       moviesApi
         .getAllMovies()
         .then((requestMovies) => {
+          requestMovies = requestMovies.map((item) => {
+            const URL_REGEX =
+              /^(https?:\/\/)?([\w-]{1,32}\.[\w-]{1,32})[^\s@]*/;
+            if (!URL_REGEX.test(item.trailerLink)) {
+              item.trailerLink = "https://www.youtube.com";
+            }
+            return item;
+          });
           const searchMovies = requestMovies.filter((item) =>
             item.nameRU.toLowerCase().includes(movie.toLowerCase())
           );
@@ -191,7 +217,7 @@ function App() {
             setInfoTooltipOpen(true);
           } else {
             localStorage.setItem("loadedMovies", JSON.stringify(requestMovies));
-            setLoadedMovies(requestMovies);
+            setAllMovies(requestMovies);
             localStorage.setItem("searchWord", movie);
             localStorage.setItem(
               "searchedMovies",
@@ -251,7 +277,7 @@ function App() {
       });
   }
 
-  function handleSearchSaveMovie(req, checkbox) {
+  function handleSearchSaveMovie(req) {
     setPreloader(true);
     const searchMovies = savedMovies.filter((item) =>
       item.nameRU.toLowerCase().includes(req.toLowerCase())
@@ -263,7 +289,6 @@ function App() {
       setInfoTooltipOpen(true);
       setPreloader(false);
     } else {
-      localStorage.setItem("checkboxStatus", JSON.stringify(checkbox));
       setSavedMovies(searchMovies);
       setPreloader(false);
     }
@@ -275,11 +300,11 @@ function App() {
     } else if (!checkbox) {
       setSavedMovies(savedMoviesList);
     }
-    localStorage.setItem("checkboxStatusSavedMovies", JSON.stringify(checkbox));
   }
 
   // Удаление фильма
   function handleDeleteMovie(movie) {
+    console.log(movie._id);
     mainApi
       .deleteMovie(movie._id)
       .then(() => {
@@ -287,7 +312,9 @@ function App() {
           (item) => item._id !== movie._id
         );
         setSavedMovies(newMoviesList);
-          savedMoviesList(savedMoviesList.filter((item) => item._id !== movie._id));
+        setSavedMoviesList(
+          savedMoviesList.filter((item) => item._id !== movie._id)
+        );
       })
       .catch((err) => {
         console.log(`Ошибка ${err}`);

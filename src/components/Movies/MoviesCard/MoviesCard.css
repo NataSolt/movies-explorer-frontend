@@ -43,7 +43,19 @@
   display: inline-grid;
 }
 
-.moviescard__button:hover {
+
+.moviescard__button_inactive {
+  background-image: url(../../../images/moviesbutton.svg);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 14px;
+  display: inline-grid;
+}
+
+.moviescard__button_inactive:hover {
   opacity: 0.8;
   cursor: pointer;
 }
