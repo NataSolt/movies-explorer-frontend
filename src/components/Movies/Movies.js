@@ -5,7 +5,7 @@ import MoviesCardList from "./MoviesCardlist/MoviesCardlist";
 //import More from "./More/More";
 import Preloader from "../Movies/Preloader/Preloader";
 
-function Movies({onSearch, foundMovies, savedMovies, onSaveMovie, onDeleteMovie, onSubmitCheckbox, preloaderStatus}) {
+function Movies({onSearch, foundMovies, savedMovies, onSaveMovie, onDeleteMovie, onSubmitCheckbox, preloaderStatus, savedMoviesList}) {
   return (
     <section className="movies">
       <SearchForm
@@ -21,6 +21,7 @@ function Movies({onSearch, foundMovies, savedMovies, onSaveMovie, onDeleteMovie,
                     onSaveMovie={onSaveMovie}
                     onDeleteMovie={onDeleteMovie}
                     savedMovies={savedMovies}
+                    savedMoviesList={savedMoviesList}
                 />
             )}
     </section>

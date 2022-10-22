@@ -23,6 +23,7 @@ function MoviesCardList({
   onSaveMovie,
   onDeleteMovie,
   savedMovies,
+  savedMoviesList
 }) {
   const location = useLocation();
 
@@ -115,6 +116,7 @@ function MoviesCardList({
             onSaveMovie={onSaveMovie}
             onDeleteMovie={onDeleteMovie}
             savedMovies={savedMovies}
+            savedMoviesList={savedMoviesList}
           />
         ))}
       </ul>

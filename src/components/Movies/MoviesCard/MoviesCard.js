@@ -5,15 +5,16 @@ import "./MoviesCard.css";
 //import moviesApi from "../../../utils/MoviesApi";
 import { MOVIES_URL, handleDurationMovies } from "../../../utils/constants";
 
-function MoviesCard({ movie, onSaveMovie, onDeleteMovie, savedMovies }) {
-  const isSaved = savedMovies.find((item) => item.movieId === movie.id);
-console.log(movie.id)
+function MoviesCard({ movie, onSaveMovie, onDeleteMovie, savedMoviesList }) {
+const isSaved = savedMoviesList.find((item) => item.movieId === movie.id);
+console.log(typeof movie.id)
 console.log(isSaved)
+console.log(savedMoviesList, "!")
   function handleSaveMovie() {
     if (!isSaved) {
       onSaveMovie(movie);
     } else {
-      onDeleteMovie(movie);
+      onDeleteMovie(isSaved);
     }
   }
 

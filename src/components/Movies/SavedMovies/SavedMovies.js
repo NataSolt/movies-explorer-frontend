@@ -11,6 +11,7 @@ function SavedMovies({
   onDeleteMovie,
   savedMovies,
   preloaderStatus,
+  savedMoviesList
 }) {
   return (
     <section className="savedmovies">
@@ -23,6 +24,7 @@ function SavedMovies({
           onSaveMovie={onSaveMovie}
           onDeleteMovie={onDeleteMovie}
           savedMovies={savedMovies}
+          savedMoviesList={savedMoviesList}
         />
       )}
     </section>

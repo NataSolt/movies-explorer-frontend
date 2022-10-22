@@ -42,6 +42,9 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesList, setSavedMoviesList] = useState([]);
 
+  console.log(savedMovies, "2");
+  console.log(savedMoviesList, "3")
+
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("loadedMovies"))) {
       if (localStorage.getItem("loadedMovies")) {
@@ -279,7 +282,7 @@ function App() {
 
   function handleSearchSaveMovie(req) {
     setPreloader(true);
-    const searchMovies = savedMovies.filter((item) =>
+    const searchMovies = savedMoviesList.filter((item) =>
       item.nameRU.toLowerCase().includes(req.toLowerCase())
     );
 
@@ -290,6 +293,7 @@ function App() {
       setPreloader(false);
     } else {
       setSavedMovies(searchMovies);
+    
       setPreloader(false);
     }
   }
@@ -367,6 +371,7 @@ function App() {
             onDeleteMovie={handleDeleteMovie}
             onSubmitCheckbox={handleCheckboxMovies}
             preloaderStatus={preloader}
+            savedMoviesList={savedMoviesList}
           />
 
           <ProtectRoute
@@ -379,6 +384,7 @@ function App() {
             onDeleteMovie={handleDeleteMovie}
             onSubmitCheckbox={handleCheckboxSavedMovies}
             preloaderStatus={preloader}
+            savedMoviesList={savedMoviesList}
           />
 
           <Route path="*">
