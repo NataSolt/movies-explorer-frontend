@@ -63,7 +63,7 @@
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.register__span {
+.register__error {
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -86,6 +86,12 @@
   border: none;
   transition: opacity 0.2s;
   cursor: pointer;
+}
+
+.register__submit_disabled {
+  cursor: default;
+  color: #C2C2C2;
+  background-color: #F8F8F8;
 }
 
 .register__form-button-submit:hover {

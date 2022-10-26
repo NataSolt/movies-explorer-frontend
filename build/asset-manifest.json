@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.900bad9d.css",
+    "main.js": "/static/js/main.5f079171.js",
+    "static/media/movie.png": "/static/media/movie.27e9b55853a2efa83a76.png",
+    "static/media/StudentPhoto.jpg": "/static/media/StudentPhoto.37e44f2314e10bdc3540.jpg",
+    "static/media/Inter-Bold.woff": "/static/media/Inter-Bold.93c1301bd9f486c573b3.woff",
+    "static/media/Inter-SemiBold.woff": "/static/media/Inter-SemiBold.cca62d21c8c555c392e5.woff",
+    "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Bold.woff2": "/static/media/Inter-Bold.ec64ea577b0349e055ad.woff2",
+    "static/media/Inter-Medium.woff2": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-SemiBold.woff2": "/static/media/Inter-SemiBold.b5f0f109bc88052d4000.woff2",
+    "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/SuisseIntl-Regular.woff": "/static/media/SuisseIntl-Regular.729fb30604cd40d104dd.woff",
+    "static/media/SuisseIntl-Regular.woff2": "/static/media/SuisseIntl-Regular.c7060fcd5dafb3e85f93.woff2",
+    "static/media/profile-icon.svg": "/static/media/profile-icon.55dfa476f22e35aec772.svg",
+    "static/media/logo-header.svg": "/static/media/logo-header.c1b0ba1ce8a4bc43339af017028222de.svg",
+    "index.html": "/index.html",
+    "static/media/searchicon.svg": "/static/media/searchicon.9d65490bd05e8f3d78d396ae8483c9a4.svg",
+    "static/media/moviesbutton.svg": "/static/media/moviesbutton.10be8b30c06e2d9bfb16.svg",
+    "static/media/moviesbutton-save.svg": "/static/media/moviesbutton-save.87ef382400293ce57951.svg",
+    "static/media/button-close-savedMovies.svg": "/static/media/button-close-savedMovies.d197a75e7d702524af49.svg",
+    "static/media/burger-menu.svg": "/static/media/burger-menu.08035af1e508cd8cfed5.svg",
+    "static/media/close-menu.svg": "/static/media/close-menu.80dfd5bd01b8fe0a895e.svg",
+    "static/media/buttonfind.svg": "/static/media/buttonfind.a93b437175afdd35a698.svg",
+    "main.900bad9d.css.map": "/static/css/main.900bad9d.css.map",
+    "main.5f079171.js.map": "/static/js/main.5f079171.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.900bad9d.css",
+    "static/js/main.5f079171.js"
+  ]
+}

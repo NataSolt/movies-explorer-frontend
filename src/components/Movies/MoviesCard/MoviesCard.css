@@ -3,6 +3,7 @@
   flex-direction: column;
   background: #fdfdfd;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  justify-content: space-between;
 }
 
 .moviescards__container {
@@ -39,9 +40,22 @@
   border-radius: 50%;
   padding: 0;
   margin-right: 14px;
+  display: inline-grid;
 }
 
-.moviescard__button:hover {
+
+.moviescard__button_inactive {
+  background-image: url(../../../images/moviesbutton.svg);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 14px;
+  display: inline-grid;
+}
+
+.moviescard__button_inactive:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -50,6 +64,14 @@
   border: none;
   background-image: url(../../../images/moviesbutton-save.svg);
   border-radius: 50%;
+  background-size: 100%;
+  padding: 0;
+  width: 30px;
+}
+
+.moviescard__button_active:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .moviescard__button-delete {
@@ -67,8 +89,9 @@
 }
 
 .moviescard__img {
-  max-width: 364px;
+  /* max-width: 364px; */
   max-height: 203px;
+  width: 100%;
 }
 
 .moviescard__img:hover {

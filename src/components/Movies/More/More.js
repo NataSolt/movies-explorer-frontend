@@ -1,13 +1,20 @@
-import "./More.css";
+// import {
+//   Route,
+//   // useLocation
+// } from "react-router-dom";
 
-function More() {
-  return (
-    <section className="more">
-      <button className="more__button" type="button">
-        Ещё
-      </button>
-    </section>
-  );
-}
+// import "./More.css";
 
-export default More;
+// function More() {
+//   return (
+//     <section className="more">
+//       <Route path="/movies">
+//         <button className="more__button" type="button">
+//           Ещё
+//         </button>
+//       </Route>
+//     </section>
+//   );
+// }
+
+// export default More;

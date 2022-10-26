@@ -1,6 +1,19 @@
 export class MainApi {
-  constructor({ baseuUrl }) {
-    this._baseuUrl = baseuUrl;
+  constructor({ BASE_URL, headers }) {
+    this._BASE_URL = BASE_URL;
+    this._headers = headers;
+    this._token = null;
+  }
+
+  // Функция устанавливает новое значение токена
+  setToken(token) {
+    this._token = token;
+    if (this._token) {
+      this._headers = {
+        ...this._headers,
+        authorization: `Bearer ${token}`,
+      };
+    }
   }
 
   //функция ошибки
@@ -12,75 +25,79 @@ export class MainApi {
   };
 
   getUser() {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(this._BASE_URL + "/users/me", {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("jwt"),
-      },
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  updateUser(data) {
-    return fetch(`${this._baseUrl}/users/me`, {
+  //замена данных профайла
+  updateUser(name, email) {
+    return fetch(`${this._BASE_URL}/users/me`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("jwt"),
-      },
-      body: JSON.stringify({
-        name: data.name,
-        about: data.about,
-      }),
+      headers: this._headers,
+      body: JSON.stringify({ name, email }),
     }).then(this._checkResponse);
   }
 
-  createMovie(data) {
-    return fetch(`${this._baseUrl}/movies`, {
+  authorize(email, password) {
+    return fetch(`${this._BASE_URL}/signin`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("jwt"),
-      },
+      headers: this._headers,
+      body: JSON.stringify({ email, password }),
+    }).then(this._checkResponse);
+  }
+
+  register({ name, email, password }) {
+    return fetch(`${this._BASE_URL}/signup`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({ name, email, password }),
+    }).then(this._checkResponse);
+  }
+
+  createMovie(movie) {
+    return fetch(`${this._BASE_URL}/movies`, {
+      method: "POST",
+      headers: this._headers,
       body: JSON.stringify({
-        country: data.country,
-        director: data.director,
-        duration: data.duration,
-        year: data.year,
-        description: data.description,
-        image: `https://api.nomoreparties.co/${data.image.url}`,
-        trailerLink: data.trailerLink,
-        thumbnail: `https://api.nomoreparties.co/${data.image.url}`,
-        movieId: data.id,
-        nameRU: data.nameRU,
-        nameEN: data.nameEN,
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `https://api.nomoreparties.co${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `https://api.nomoreparties.co${movie.image.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
       }),
     }).then(this._checkResponse);
   }
 
   savedMovies() {
-    return fetch(`${this._baseUrl}/movies`, {
+    return fetch(`${this._BASE_URL}/movies`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("jwt"),
-      },
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 
   deleteMovie(id) {
-    return fetch(`${this._baseUrl}/movies/${id}`, {
+    console.log(id);
+    return fetch(`${this._BASE_URL}/movies/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("jwt"),
-      },
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 }
 
 const mainApi = new MainApi({
-  baseUrl: "https://api.poiskkino.nomoredomains.sbs",
+  BASE_URL: "https://api.poiskkino.nomoredomains.sbs",
+  // baseUrl: "http://localhost:3005",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 export default mainApi;
